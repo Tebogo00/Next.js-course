@@ -1,4 +1,5 @@
 import { useRef } from 'react';
+
 import classes from './newsletter-registration.module.css';
 
 function NewsletterRegistration() {
@@ -9,17 +10,16 @@ function NewsletterRegistration() {
 
     const enteredEmail = emailInputRef.current.value;
 
-    // this sent's a request to the API
-    fetch("/api/newsletter", {
-      method: "POST",
+    //fetching data from the newsletter api
+    fetch('/api/newsletter', {
+      method: 'POST',
       body: JSON.stringify({ email: enteredEmail }),
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
     })
       .then((response) => response.json())
-      .then((data) => console.log(data))
-      .catch((error) => console.error(error)); // Handle errors here if needed
+      .then((data) => console.log(data));
   }
 
   return (

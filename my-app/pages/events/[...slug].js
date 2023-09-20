@@ -16,7 +16,7 @@ function FilteredEventsPage(props) {
   const filterData = router.query.slug;
 
   const { data, error } = useSWR(
-    "https://next-course-01-default-rtdb.firebaseio.com/events.json",
+    "https://events-app-f399f-default-rtdb.firebaseio.com/events.json",
     (url) => fetch(url).then(res => res.json())
   );
 
