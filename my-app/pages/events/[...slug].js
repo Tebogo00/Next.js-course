@@ -16,7 +16,7 @@ function FilteredEventsPage(props) {
   const filterData = router.query.slug;
 
   const { data, error } = useSWR(
-    "https://events-app-f399f-default-rtdb.firebaseio.com/events.json",
+    "https://next-course-01-default-rtdb.firebaseio.com/events.json",
     (url) => fetch(url).then(res => res.json())
   );
 
@@ -34,36 +34,35 @@ function FilteredEventsPage(props) {
       setLoadedEvents(events);
     }
   }, [data]);
+
   let pageHeadData = (
     <Head>
       <title>Filtered Events</title>
-      <meta
-        name="description"
-        content={"A list of filtered events"}
-      />
+      <meta name='description' content={`A list of filtered events.`} />
     </Head>
   );
 
   if (!loadedEvents) {
     return (
       <Fragment>
-      {pageHeadData}
-        <p className="center">Loading...</p>;
+        {pageHeadData}
+        <p className='center'>Loading...</p>
       </Fragment>
     );
   }
-    const filteredYear = filterData[0];
-    const filteredMonth = filterData[1];
 
-    const numYear = +filteredYear;
-    const numMonth = +filteredMonth;
-    
+  const filteredYear = filterData[0];
+  const filteredMonth = filterData[1];
+
+  const numYear = +filteredYear;
+  const numMonth = +filteredMonth;
+
   pageHeadData = (
     <Head>
       <title>Filtered Events</title>
       <meta
-        name="description"
-        content={"All events for ${numMonth}/${numYear}"}
+        name='description'
+        content={`All events for ${numMonth}/${numYear}.`}
       />
     </Head>
   );
@@ -83,8 +82,8 @@ function FilteredEventsPage(props) {
         <ErrorAlert>
           <p>Invalid filter. Please adjust your values!</p>
         </ErrorAlert>
-        <div className="center">
-          <Button link="/events">Show All Events</Button>
+        <div className='center'>
+          <Button link='/events'>Show All Events</Button>
         </div>
       </Fragment>
     );
@@ -105,8 +104,8 @@ function FilteredEventsPage(props) {
         <ErrorAlert>
           <p>No events found for the chosen filter!</p>
         </ErrorAlert>
-        <div className="center">
-          <Button link="/events">Show All Events</Button>
+        <div className='center'>
+          <Button link='/events'>Show All Events</Button>
         </div>
       </Fragment>
     );

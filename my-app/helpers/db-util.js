@@ -3,7 +3,7 @@ import { MongoClient } from 'mongodb';
 //used the async/Await to allow the program to run without freezing  
 export async function connectDatabase(){
    const client = await MongoClient.connect(
-      "mongodb+srv://MmaseroleKobue:1707Kobue@cluster0.yz8ilzv.mongodb.net/events?retryWrites=true&w=majority"
+      "mongodb+srv://motlhalet420:Tshetlhana23@cluster0.4meqcwl.mongodb.net/events?retryWrites=true&w=majority"
     );
     return client;
 }

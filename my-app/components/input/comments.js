@@ -10,7 +10,6 @@ function Comments(props) {
   const [showComments, setShowComments] = useState(false);
   const [comments, setComments] = useState([]);
 
-    //fetching comments
   useEffect(() => {
     if (showComments) {
       fetch('/api/comments/' + eventId)

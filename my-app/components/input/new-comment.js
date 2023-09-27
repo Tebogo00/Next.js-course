@@ -15,7 +15,6 @@ function NewComment(props) {
     const enteredName = nameInputRef.current.value;
     const enteredComment = commentInputRef.current.value;
 
-    // input validation
     if (
       !enteredEmail ||
       enteredEmail.trim() === '' ||
